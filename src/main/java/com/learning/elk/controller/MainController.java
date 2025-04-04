@@ -13,11 +13,22 @@ public class MainController {
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    @GetMapping("/log")
+    @GetMapping("/log/error")
     public String generateLog() {
-        logger.info("Este é um log de INFO");
-        logger.warn("Este é um log de WARN");
         logger.error("Este é um log de ERROR");
+        return "Logs gerados!";
+    }
+
+
+    @GetMapping("/log/warn")
+    public String generateLogWarn() {
+        logger.warn("Este é um log de WARN");
+        return "Logs gerados!";
+    }
+
+    @GetMapping("/log/info")
+    public String generateLogInfo() {
+        logger.info("Este é um log de INFO");
         return "Logs gerados!";
     }
 }
